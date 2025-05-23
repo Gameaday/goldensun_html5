@@ -159,16 +159,21 @@ export function split_diag_direction(direction: directions) {
 }
 
 /**
- * Returns the diagonal value for its component directions
+ * Returns the diagonal direction value from two component directions
  * Example: Input: 6, 0 (up, right) / Output: 7 (up_right)
- *
- * @param {number} dir_1 - Direction values
- * @param {number} dir_2 - Direction values
- * @return {number} Diagonal direction value
+ * @param dir_1 First component direction
+ * @param dir_2 Second component direction 
+ * @returns Diagonal direction value, or null if invalid combination
  */
-export function join_directions(dir_1: directions, dir_2: directions): directions {
-    dir_2 = dir_1 === directions.up && dir_2 === directions.right ? 8 : dir_2;
-    return Math.min(dir_1, dir_2) + 1;
+export function join_directions(dir_1: directions, dir_2: directions): directions | null {
+    const min = Math.min(dir_1, dir_2);
+    const max = Math.max(dir_1, dir_2);
+
+    if ((min % 2 === 0) && (max % 2 === 0) && // both cardinal
+        ((max - min === 2) || (min === 0 && max === 6))) { // adjacent cardinal
+        return min + 1;
+    }
+    return null;
 }
 
 /**

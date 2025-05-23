@@ -124,7 +124,7 @@ export class BattleStatusWindow {
 
     private game: Phaser.Game;
     private data: GoldenSun;
-    private close_callback: Function;
+    private close_callback: () => void;
 
     private selected_char: MainChar;
 
@@ -447,8 +447,10 @@ export class BattleStatusWindow {
                     }
                 }
             } else if (buffs_debuffs[index].stat in effect_type_stat) {
-                if (effect.properties.value >= 0) modifier = "up";
-                else modifier = "down";
+                if (typeof effect.properties.value === 'number') {
+                    if (effect.properties.value >= 0) modifier = "up";
+                    else modifier = "down";
+                }
             }
 
             if (modifier === null) continue;
@@ -457,7 +459,7 @@ export class BattleStatusWindow {
             effect.properties.modifier = modifier;
             effect.properties.value = buffs_debuffs[index].value;
 
-            if (effects.length < BattleStatusWindow.MAX_EFFECTS_DISPLAYED) effects.push(effect);
+              if (effects.length < BattleStatusWindow.MAX_EFFECTS_DISPLAYED) effects.push(effect);
         }
 
         this.battle_effects = effects;
@@ -686,7 +688,7 @@ export class BattleStatusWindow {
         }
     }
 
-    public open(selected_char?: MainChar, close_callback?: Function, open_callback?: Function) {
+    public open(selected_char?: MainChar, close_callback?: () => void, open_callback?: Function) {
         if (!selected_char) this.selected_char = this.data.info.party_data.members[0];
         else this.selected_char = selected_char;
 

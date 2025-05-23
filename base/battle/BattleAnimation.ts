@@ -1410,8 +1410,8 @@ export class BattleAnimation {
     }
 
     play_shake_sequence() {
-        for (let i = 0; i < this.shake_sequence.length; ++i) {
-            const shake_seq = this.shake_sequence[i];
+        for (const element of this.shake_sequence) {
+            const shake_seq = element;
             if (shake_seq.ignore_if_dodge && this.target_dodged) {
                 continue;
             }
@@ -1434,7 +1434,7 @@ export class BattleAnimation {
                 this.promises.push(this_promise);
 
                 const apply_shake = async () => {
-                    for (let i = 0; i < shake_seq.shake_count ?? 1; ++i) {
+                    for (let i = 0; i < (shake_seq.shake_count ?? 1); ++i) {
                         let resolve_f;
                         const this_prom = new Promise(resolve => (resolve_f = resolve));
                         const direction = shake_seq.direction ?? "y";
@@ -1442,7 +1442,7 @@ export class BattleAnimation {
                             .tween(sprite)
                             .to(
                                 {
-                                    [direction]: sprite[direction] + shake_seq.intensity ?? 2,
+                                    [direction]: (sprite[direction] ?? 0) + (shake_seq.intensity ?? 2),
                                 },
                                 shake_seq.interval ?? 70,
                                 Phaser.Easing.Linear.None,

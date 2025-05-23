@@ -1769,8 +1769,8 @@ export abstract class ControllableChar {
      * @param delta_value the x and/or y speed variation object.
      */
     increase_forced_extra_speed(delta_value: {x?: number; y?: number}) {
-        this._extra_speed_force.x += delta_value.x | 0 ?? 0;
-        this._extra_speed_force.y += delta_value.y | 0 ?? 0;
+        this._extra_speed_force.x += delta_value.x | 0;
+        this._extra_speed_force.y += delta_value.y | 0;
     }
 
     /**
