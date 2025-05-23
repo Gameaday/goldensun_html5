@@ -447,7 +447,7 @@ export class BattleStatusWindow {
                     }
                 }
             } else if (buffs_debuffs[index].stat in effect_type_stat) {
-                if (typeof effect.properties.value === 'number') {
+                if (typeof effect.properties.value === "number") {
                     if (effect.properties.value >= 0) modifier = "up";
                     else modifier = "down";
                 }
@@ -459,7 +459,7 @@ export class BattleStatusWindow {
             effect.properties.modifier = modifier;
             effect.properties.value = buffs_debuffs[index].value;
 
-              if (effects.length < BattleStatusWindow.MAX_EFFECTS_DISPLAYED) effects.push(effect);
+            if (effects.length < BattleStatusWindow.MAX_EFFECTS_DISPLAYED) effects.push(effect);
         }
 
         this.battle_effects = effects;
