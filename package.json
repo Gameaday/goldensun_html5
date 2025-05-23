@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "author": "jjppof",
-  "description": "An online Golden Sun Engine entirely built in HTML5 with Phaser 2.",
+  "description": "An online Golden Sun Engine entirely built in HTML5 with Phaser-CE.",
   "keywords": [
     "Golden Sun"
   ],
@@ -38,10 +38,10 @@
     "npm": "^7"
   },
   "devDependencies": {
+    "@electron/packager": "~18.3.6",
     "@types/lodash": "~4.14.202",
     "@types/mathjs": "~6.0.12",
     "electron": "4.2.12",
-    "@electron/packager": "~18.3.6",
     "husky": "^5.2.0",
     "pinst": "~2.1.6",
     "prettier": "~2.6.2",
@@ -59,6 +59,7 @@
     "core-js": "~3.25.5",
     "lodash": "^4.17.21",
     "mathjs": "~9.5.2",
+    "phaser-ce": "~2.20.2",
     "rxjs": "~6.6.7"
   }
 }
