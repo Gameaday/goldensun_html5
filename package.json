@@ -30,7 +30,7 @@
     "format-check": "npx prettier --check \"base/**/*.ts\"",
     "format": "npx prettier --write \"base/**/*.ts\"",
     "docs": "node scripts/generate_docs.js",
-    "postinstall": "npx husky install && npm dedupe",
+    "_postinstall": "npx husky install && npm dedupe",
     "prepublish": "npx pinst --disable",
     "postpublish": "npx pinst --enable"
   },
@@ -38,18 +38,18 @@
     "npm": "^7"
   },
   "devDependencies": {
-    "@types/lodash": "~4.14",
-    "@types/mathjs": "~6.0",
+    "@types/lodash": "~4.14.202",
+    "@types/mathjs": "~6.0.12",
     "electron": "4.2.12",
-    "electron-packager": "~16.0.0",
-    "husky": "^5",
-    "pinst": "~2.1",
-    "prettier": "~2.6",
+    "@electron/packager": "~18.3.6",
+    "husky": "^5.2.0",
+    "pinst": "~2.1.6",
+    "prettier": "~2.6.2",
     "ts-loader": "~8.3",
-    "tslib": "~2.4.0",
-    "typedoc": "~0.22",
-    "typescript": "~4.6",
-    "webpack": "~4.46",
+    "tslib": "~2.4.1",
+    "typedoc": "~0.22.18",
+    "typescript": "~4.6.4",
+    "webpack": "~4.47.0",
     "webpack-cli": "^3",
     "webpack-dev-server": "~3.11",
     "webpack-merge": "~5.8.0"
@@ -57,8 +57,8 @@
   "dependencies": {
     "@turf/turf": "^6",
     "core-js": "~3.25.5",
-    "lodash": "^4",
-    "mathjs": "~9.5",
-    "rxjs": "~6.6"
+    "lodash": "^4.17.21",
+    "mathjs": "~9.5.2",
+    "rxjs": "~6.6.7"
   }
 }
